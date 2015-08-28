@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.0.0"
+
+    defaultConfig {
+        applicationId "com.slim.slimlauncher"
+        minSdkVersion 22
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs =['src/main/src', 'src/main/WallpaperPicker/src']
+            res.srcDirs = ['src/main/res', 'src/main/WallpaperPicker/res']
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:recyclerview-v7:23.0.0'
+    compile 'com.android.support:support-v4:23.0.0'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
